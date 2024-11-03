@@ -1,6 +1,8 @@
 package com.example.thirstyfriend
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +29,11 @@ class MainActivity2 : AppCompatActivity() {
             .load(R.drawable.animation)
             .into(characterImageView)
 
+        val continue_button = findViewById<Button>(R.id.continue_button)
+        continue_button.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            startActivity(intent)
+        }
 
 
     }
