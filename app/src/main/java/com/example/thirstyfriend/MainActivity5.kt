@@ -20,7 +20,7 @@ class MainActivity5 : AppCompatActivity() {
         // Configurar el NumberPicker
         numberPicker.apply {
             minValue = 1
-            maxValue = 120  // Rango de edad
+            maxValue = 80  // Rango de edad
             value = 25  // Edad inicial
 
             // Quitar el teclado al hacer clic

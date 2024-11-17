@@ -22,7 +22,7 @@ class MainActivity4 : AppCompatActivity() {
         // Configurar el NumberPicker
         numberPicker.apply {
             minValue = 1
-            maxValue = 999
+            maxValue = 209
             value = 65  // Valor inicial
 
             // Opcional: Quitar el teclado al hacer click
