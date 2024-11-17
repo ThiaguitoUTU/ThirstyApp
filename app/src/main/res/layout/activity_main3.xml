@@ -37,65 +37,33 @@
         android:gravity="center"
         android:paddingTop="16dp">
 
-        <ImageView
-            android:id="@+id/characterImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center"/>
 
-        <LinearLayout
+        <!-- RadioGroup para selección de género, sin LinearLayout adicionales -->
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <!-- Imagen de Hombre con checkbox -->
-            <LinearLayout
+            <!-- Opción de Hombre -->
+            <RadioButton
+                android:id="@+id/radioHombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:drawableTop="@drawable/hombre"
+                android:text="Hombre"
+                android:buttonTint="@color/light_blue" />
 
-                <ImageView
-                    android:id="@+id/imagenHombre"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/hombre"
-                    android:contentDescription="Hombre"
-                    android:scaleType="centerInside"
-                    android:layout_marginBottom="8dp"/>
-
-                <CheckBox
-                    android:id="@+id/checkboxHombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Seleccionar Hombre" />
-            </LinearLayout>
-
-            <!-- Imagen de Mujer con checkbox -->
-            <LinearLayout
+            <!-- Opción de Mujer -->
+            <RadioButton
+                android:id="@+id/radioMujer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginStart="16dp">
-
-                <ImageView
-                    android:id="@+id/imagenMujer"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/mujer"
-                    android:contentDescription="Mujer"
-                    android:scaleType="centerInside"
-                    android:layout_marginBottom="8dp"/>
-
-                <CheckBox
-                    android:id="@+id/checkboxMujer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Seleccionar Mujer" />
-            </LinearLayout>
-        </LinearLayout>
+                android:drawableTop="@drawable/mujer"
+                android:text="Mujer"
+                android:buttonTint="@color/light_blue" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/botonContinuar"
