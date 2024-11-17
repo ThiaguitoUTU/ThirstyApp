@@ -1,11 +1,12 @@
 package com.example.thirstyfriend
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.animation.DecelerateInterpolator
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -18,10 +19,11 @@ class Principal : AppCompatActivity() {
     private lateinit var tvHistorial: TextView
     private var progresoActual = 0
     private val OBJETIVO_DIARIO = 1000
+    private val INCREMENTO = 100 // Incremento del progreso (en mililitros)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_principal)
 
         // Ajustar márgenes para insets del sistema
@@ -31,7 +33,12 @@ class Principal : AppCompatActivity() {
             insets
         }
 
+        val characterImageView = findViewById<ImageView>(R.id.characterImageView)
 
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.animation)
+            .into(characterImageView)
 
         // Referenciar vistas
         progressBar = findViewById(R.id.progressBar)
@@ -41,14 +48,19 @@ class Principal : AppCompatActivity() {
 
         // Configurar evento de clic
         btnMas.setOnClickListener {
-            agregarAgua(100) // Incrementar el progreso en 100 ml
+            agregarAgua(INCREMENTO) // Incrementar el progreso
         }
     }
 
     private fun agregarAgua(cantidad: Int) {
         if (progresoActual + cantidad <= OBJETIVO_DIARIO) {
-            progresoActual += cantidad
-            progressBar.progress = progresoActual
+            val nuevoProgreso = progresoActual + cantidad
+
+            // Animar el progreso de la barra
+            animarProgreso(progressBar, progresoActual, nuevoProgreso)
+
+            // Actualizar valores
+            progresoActual = nuevoProgreso
             tvCantidadAgua.text = "$progresoActual/$OBJETIVO_DIARIO ml"
 
             // Actualizar historial
@@ -57,4 +69,10 @@ class Principal : AppCompatActivity() {
             tvHistorial.text = nuevoRegistro
         }
     }
+
+
+    private fun animarProgreso(progressBar: ProgressBar, inicio: Int, fin: Int) {
+        progressBar.progress = fin
+    }
+
 }
