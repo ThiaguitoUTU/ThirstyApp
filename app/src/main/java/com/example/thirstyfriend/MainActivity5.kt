@@ -1,5 +1,6 @@
 package com.example.thirstyfriend
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -37,6 +38,12 @@ class MainActivity5 : AppCompatActivity() {
             val selectedAge = numberPicker.value
             Log.d("AgePicker", "Edad confirmada: $selectedAge años")
             // Aquí puedes añadir la lógica para continuar con la edad seleccionada
+        }
+
+        val botonContinuar = findViewById<Button>(R.id.botonContinuar)
+        botonContinuar.setOnClickListener {
+            val intent = Intent(this, Principal::class.java)
+            startActivity(intent)
         }
     }
 }
