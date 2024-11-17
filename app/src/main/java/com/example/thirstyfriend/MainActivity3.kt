@@ -1,6 +1,8 @@
 package com.example.thirstyfriend
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -34,6 +36,12 @@ class MainActivity3 : AppCompatActivity() {
         botonMujer.setOnClickListener {
             seleccionarGenero(false)
         }
+
+        val botonContinuar = findViewById<Button>(R.id.botonContinuar)
+        botonContinuar.setOnClickListener {
+            val intent = Intent(this, MainActivity4::class.java)
+            startActivity(intent)
+        }
     }
 
     // Función para cambiar el estado seleccionado
@@ -41,4 +49,9 @@ class MainActivity3 : AppCompatActivity() {
         botonHombre.isSelected = esHombre
         botonMujer.isSelected = !esHombre
     }
+
+
+
+
+
 }
