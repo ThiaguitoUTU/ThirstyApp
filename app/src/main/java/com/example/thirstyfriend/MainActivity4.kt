@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.NumberPicker
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 
 class MainActivity4 : AppCompatActivity() {
     private lateinit var numberPicker: NumberPicker
@@ -37,6 +39,15 @@ class MainActivity4 : AppCompatActivity() {
             // Aquí puedes manejar el cambio de valor
             Log.d("WeightPicker", "Peso seleccionado $newVal kg")
         }
+
+        val goticaImage = findViewById<ImageView>(R.id.goticaImage)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.animation)
+            .into(goticaImage)
+
+
 
         val botonContinuar = findViewById<Button>(R.id.botonContinuar)
         botonContinuar.setOnClickListener {

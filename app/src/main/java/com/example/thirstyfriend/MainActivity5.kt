@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.NumberPicker
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class MainActivity5 : AppCompatActivity() {
     private lateinit var numberPicker: NumberPicker
@@ -39,6 +41,14 @@ class MainActivity5 : AppCompatActivity() {
             Log.d("AgePicker", "Edad confirmada: $selectedAge años")
             // Aquí puedes añadir la lógica para continuar con la edad seleccionada
         }
+
+        val goticaImag = findViewById<ImageView>(R.id.goticaImage)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.animation)
+            .into(goticaImag)
+
 
         val botonContinuar = findViewById<Button>(R.id.botonContinuar)
         botonContinuar.setOnClickListener {

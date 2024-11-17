@@ -43,8 +43,7 @@
             android:layout_width="112dp"
             android:layout_height="107dp"
             android:layout_gravity="center"
-            android:contentDescription="gotica1"
-            android:src="@drawable/animation" />
+            android:contentDescription="gotica1"/>
 
         <!-- Layout para el muñeco y el NumberPicker -->
         <LinearLayout
